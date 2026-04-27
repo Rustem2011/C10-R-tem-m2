@@ -12,9 +12,11 @@ class HomeController extends Controller
         $foods = \App\Models\Food::inRandomOrder()->limit(12)->get();
 
         $categories = \App\Models\Category::inRandomOrder()->limit(4)->get();
-        
+
         $restaurants = \App\Models\Restaurant::orderBy('rating', 'desc')->limit(8)->get();
+
         $categoryMap = \App\Models\Category::pluck('name', 'id')->toArray();
+        
         return view('home.index', compact('appName', 'categories', 'foods', 'restaurants', 'categoryMap'));
     }
 }
