@@ -12,6 +12,7 @@ class FoodController extends Controller
         return view('foods.index', compact('foods', 'categoryMap'));
     }
     public function foodShow($id): View
+    
     {
         $food = Food::findOrFail($id);
         $category = \App\Models\Category::find($food->category_id);
