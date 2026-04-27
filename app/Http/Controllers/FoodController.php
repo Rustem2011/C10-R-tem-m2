@@ -11,8 +11,9 @@ class FoodController extends Controller
         $foods = Food::all();
         return view('foods.index', compact('foods', 'categoryMap'));
     }
-    public function foodShow($id): View
     
+    public function foodShow($id): View
+
     {
         $food = Food::findOrFail($id);
         $category = \App\Models\Category::find($food->category_id);
